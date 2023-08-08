@@ -1,5 +1,6 @@
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import tasksReducer from "./reducers/tasksReducer";
+import TasksContext from "./contexts/tasksContext";
 
 interface Task {
   id: number;
@@ -8,7 +9,7 @@ interface Task {
 
 const TaskList = () => {
   // const [tasks, setTasks] = useState<Task[]>([]);
-  const [tasks, dispatch] = useReducer(tasksReducer, []);
+  const { tasks, dispatch } = useContext(TasksContext);
 
   return (
     <>
